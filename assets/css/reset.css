@@ -23,3 +23,11 @@ input::-webkit-search-results-button,
 input::-webkit-search-results-decoration{
     display:none;
 }
+
+
+@media(max-width:735px){
+    html,body{
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
