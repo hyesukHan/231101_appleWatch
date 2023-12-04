@@ -807,6 +807,10 @@
     .header{
         width: 100%;
     }
+    .header .m-header-top .m-header-wrapper .search-wrapper .search-area{
+        width: 100%;
+        overflow-x: hidden;
+    }
     .footer .inner{
         padding: 0 16px;
         max-width: 100%;
