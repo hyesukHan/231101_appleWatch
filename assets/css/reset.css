@@ -26,7 +26,7 @@ input::-webkit-search-results-decoration{
 
 
 @media(max-width:735px){
-    html,body{
+    html{
         width: 100%;
         overflow-x: hidden;
     }
