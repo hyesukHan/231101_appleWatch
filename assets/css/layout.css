@@ -803,6 +803,10 @@
     border-top: 1px solid #d2d2d7;
 }
 @media (max-width:735px) {
+
+    .header{
+        width: 100%;
+    }
     .footer .inner{
         padding: 0 16px;
         max-width: 100%;
