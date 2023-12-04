@@ -338,6 +338,7 @@
     letter-spacing: .007em;
     background-color: transparent;
     border: none;
+    width: 100%;
 }
 .header .m-header-top .m-header-wrapper .search-wrapper .search-area .link-area{
     margin-top: 50px;
