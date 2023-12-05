@@ -207,7 +207,7 @@ gsap.to('.sc-gesture .gesture-list ul',{
 
 let animation1 = bodymovin.loadAnimation({
     container: $('#lottie_1')[0], // Required
-    path: '../json/particle.json', 
+    path: '../../assets/json/particle.json', 
     renderer: 'svg', // Required
     loop: true, // Optional
     autoplay: true // Optional
@@ -226,7 +226,7 @@ let animation1 = bodymovin.loadAnimation({
      });
 let animation2 = bodymovin.loadAnimation({
     container: $('#lottie_2')[0], // Required
-    path: '../json/carbon.json', 
+    path: '../../assets/json/carbon.json', 
     renderer: 'svg', // Required
     loop: true, // Optional
     autoplay: true // Optional
