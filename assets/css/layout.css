@@ -629,6 +629,7 @@
     padding-left: 0.3em;
 }
 .footer .sc-footnote{
+    list-style-position: inside;
     border-bottom: 1px solid #d2d2d7;
     padding: 17px 0 11px;
 }
