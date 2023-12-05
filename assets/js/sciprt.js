@@ -1,5 +1,4 @@
 
-
 $('.header .header-top .gnb .item').hover(function(){
     h = $(this).find('.gnb-2dept-wrapper').outerHeight();
     $('.header').css('--height',h+'px');
