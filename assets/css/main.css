@@ -1846,8 +1846,9 @@
         top: 312px;
     }
     .sc-gesture .sticky-container .sticky-content .gesture-list{
-        height: 200px;
+        height: 600px;
         overflow: hidden;
+        transform: translateY(-200px);
     }
     .sc-display{
         height: 500px;
