@@ -385,7 +385,7 @@
     bottom: 250px;
     width: 400px;
     opacity: 0;
-    transform: translateY(0);
+    transform: translate(-30%, 0);
     transition: 0.5s;
 }
 .sc-display .text-area.scrollY{
