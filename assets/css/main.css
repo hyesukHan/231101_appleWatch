@@ -203,6 +203,7 @@
 .sc-gesture .text-area{
     text-align: center;
     margin-top: 110px;
+    position: relative;
 }
 .sc-gesture .text-area .deco{
     font-size: 160px;
