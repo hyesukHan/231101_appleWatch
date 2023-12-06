@@ -1874,7 +1874,7 @@
     }
     .sc-display .text-area{
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-30%);
         bottom: 20px;
         width: 230px;
     }
