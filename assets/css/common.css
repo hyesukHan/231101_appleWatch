@@ -92,6 +92,7 @@
 }
 .slide-control .btn-prev span,.slide-control .btn-next span{
     display: inline-block;
+    transform: translateY(3px);
 }
 .btn-prev.swiper-button-disabled,
 .btn-next.swiper-button-disabled{
