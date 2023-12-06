@@ -1,3 +1,4 @@
+//pc에서 header gnb hover시 메뉴 나오고 들어가기
 
 $('.header .header-top .gnb .item').hover(function(){
     h = $(this).find('.gnb-2dept-wrapper').outerHeight();
@@ -11,44 +12,43 @@ $('.header .header-top .gnb .item').hover(function(){
 })
 
 
-$('.btn-search').click(function(){
-    $('.header .header-top .util-wrap .search-wrap .search-area').toggleClass('on');
-    if($('.header .header-top .util-wrap .search-wrap .search-area').hasClass('on')){
-        h = $('.search-wrap .search-area').outerHeight();
-        $('.header').css('--height',h+'px');
-    }else{
-        $('.header').css('--height',0+'px');
-    }
-    $('.nav-curtain').toggleClass('on');
-    $('.search-area-wrapper .input-wrapper input[type=search]').focus();
-})
-$('.btn-shopping').click(function(e){
-    $('.header .header-top .util-wrap .shopping-wrap .shopping-area').toggleClass('on');
-    if($('.header .header-top .util-wrap .shopping-wrap .shopping-area').hasClass('on')){
-        h = $('.shopping-wrap .shopping-area').outerHeight();
-        $('.header').css('--height',h+'px');
-    }else{
-        $('.header').css('--height',0+'px');
-    }
-    $('.nav-curtain').toggleClass('on');
-})
+$('.btn-search').click(function (e) {
+    e.stopPropagation(); // 이벤트 전파 중지
+    toggleMenu('.search-wrap .search-area');
+});
 
-$('html').click(function(e){
-    if(!$(e.target).hasClass('search-area') && !$(e.target).hasClass('btn-search')){
-         $('.header .header-top .util-wrap .search-wrap .search-area').removeClass('on');
-     }
-    if(!$(e.target).hasClass('shopping-area') && !$(e.target).hasClass('btn-shopping')){
-        $('.header .header-top .util-wrap .shopping-wrap .shopping-area').removeClass('on');
-    }
-    if(!$(e.target).hasClass('search-area') && !$(e.target).hasClass('btn-search') && !$(e.target).hasClass('shopping-area') && !$(e.target).hasClass('btn-shopping')){            
-        $('.header').css('--height',0+'px');
-        $('.nav-curtain').removeClass('on');
-    }
- })
+// btn-shopping 클릭 이벤트
+$('.btn-shopping').click(function (e) {
+    e.stopPropagation(); // 이벤트 전파 중지
+    toggleMenu('.shopping-wrap .shopping-area');
+});
 
-setTimeout(function() {
-    $('.sc-watch-9 .sticky-content .inner .title-area .title').addClass('on');
-  }, 4000);
+// html 클릭 이벤트
+$('html').click(function () {
+    closeAllMenus();
+});
+
+// 공통 함수: 메뉴 토글
+function toggleMenu(menuSelector) {
+    $(menuSelector).toggleClass('on');
+    updateHeaderHeight(menuSelector);
+    $('.nav-curtain').toggleClass('on');
+}
+
+// 공통 함수: 모든 메뉴 닫기
+function closeAllMenus() {
+    $('.search-wrap .search-area, .shopping-wrap .shopping-area').removeClass('on');
+    $('.header').css('--height', '0px');
+    $('.nav-curtain').removeClass('on');
+}
+
+// 공통 함수: 헤더 높이 업데이트
+function updateHeaderHeight(menuSelector) {
+    const h = $(menuSelector).outerHeight();
+    $('.header').css('--height', h + 'px');
+} 
+
+//header 색상 바꾸는 스크롤 트리거
 
 ScrollTrigger.create({
     trigger:`.white-wrapper`,
@@ -62,6 +62,12 @@ ScrollTrigger.create({
     end:"100% 0%",
     toggleClass:{targets:".header",className:"on"}
     })
+
+//sc-watch-9 애니메이션
+
+setTimeout(function() {
+    $('.sc-watch-9 .sticky-content .inner .title-area .title').addClass('on');
+  }, 4000);
 
 ScrollTrigger.create({
     trigger:`.sc-watch-9 .sticky-container`,
@@ -93,6 +99,7 @@ introTl.to('.sc-watch-9 .sticky-content .inner .video-container',{scale:0.9,opac
 introTl.to('.sc-watch-9 .sticky-content .inner .desc-area',{opacity:1,})
 introTl.to('.sc-watch-9 .sticky-content .inner .desc-area .desc',{'background-image':`radial-gradient(circle at 50% 11.6134vh, rgb(254, 196, 209) 9.46453vh, rgb(252, 74, 170) 82.3227vh, rgb(135, 50, 127) 120.787vh, rgba(18, 7, 18, 0.153) 150.787vh)`,})
 
+//data-scroll-1 값을 가진 모든 객체들에 scrollY 클래스 토글해서 컨트롤 
 
 $('[data-scroll-1]').each(function(i,el){
     gsap.to($(this),{
@@ -104,6 +111,9 @@ $('[data-scroll-1]').each(function(i,el){
         },
     })
 })
+
+
+//sc-gesture video 컨트롤
 
 $('.replay').on('click',function(){
     $('.replay').hide();
@@ -130,6 +140,10 @@ setInterval(function(){
     $('.pause').hide();
     }
 });
+
+
+//sc-gesture list 스크롤 애니메이션
+
 gsap.set('.sc-gesture .gesture-list ul li:nth-child(1)',{
     y:'-40vh'
 })
@@ -195,6 +209,9 @@ gsap.to('.sc-gesture .gesture-list ul',{
     yPercent:-70,
 })
 
+
+//lottie animation 스크롤에 따라 컨트롤
+
 let animation1 = bodymovin.loadAnimation({
     container: $('#lottie_1')[0], // Required
     path: './assets/json/particle.json', 
@@ -233,6 +250,9 @@ let animation2 = bodymovin.loadAnimation({
             }
         });
      });
+
+// sc-carbon title과 image 스크롤 애니메이션
+
 const carbonTl = gsap.timeline({
     scrollTrigger:{
         trigger:".sc-carbon .sticky-container",
