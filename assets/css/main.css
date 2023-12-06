@@ -1793,11 +1793,11 @@
     }
     .sc-gesture .text-area{
         margin-top: 0;
+        z-index: 10;
+        position: relative;
     }
     .sc-gesture .text-area .deco{
-        position: relative;
         font-size: 80px;
-        z-index: 10;
     }
     .sc-gesture .video-container video{
         width: 100%;
