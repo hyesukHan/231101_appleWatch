@@ -1053,6 +1053,7 @@
     padding: 200px 25px 25px 25px;
 }
 .sc-banner .inner{
+    width: auto;
     max-width: 1320px;
     margin: 0 auto;
 }
