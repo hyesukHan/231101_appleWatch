@@ -1854,7 +1854,7 @@
     .sc-gesture .sticky-container .sticky-content .gesture-list{
         height: 600px;
         overflow: hidden;
-        transform: translateY(-200px);
+        transform: translateY(-100px);
     }
     .sc-display{
         height: 500px;
